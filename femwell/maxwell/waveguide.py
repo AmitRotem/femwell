@@ -688,11 +688,11 @@ def calculate_overlap(
     basis_j_fix = basis_j.with_element(ElementVector(ElementTriP1()))
 
     (et, et_basis), (ez, ez_basis) = basis_j.split(E_j)
-    E_j = basis_j_fix.project(et_basis.interpolate(et), dtype=np.cfloat)
+    E_j = basis_j_fix.project(et_basis.interpolate(et), dtype=np.complex128)
     (et_x, et_x_basis), (et_y, et_y_basis) = basis_j_fix.split(E_j)
 
     (et, et_basis), (ez, ez_basis) = basis_j.split(H_j)
-    H_j = basis_j_fix.project(et_basis.interpolate(et), dtype=np.cfloat)
+    H_j = basis_j_fix.project(et_basis.interpolate(et), dtype=np.complex128)
     (ht_x, ht_x_basis), (ht_y, ht_y_basis) = basis_j_fix.split(H_j)
 
     @Functional(dtype=np.complex64)
@@ -720,7 +720,7 @@ def calculate_scalar_product(basis_i, E_i, basis_j, H_j):
     basis_j_fix = basis_j.with_element(ElementVector(ElementTriP1()))
 
     (et, et_basis), (ez, ez_basis) = basis_j.split(H_j)
-    H_j = basis_j_fix.project(et_basis.interpolate(et), dtype=np.cfloat)
+    H_j = basis_j_fix.project(et_basis.interpolate(et), dtype=np.complex128)
     (ht_x, ht_x_basis), (ht_y, ht_y_basis) = basis_j_fix.split(H_j)
 
     @Functional(dtype=np.complex64)
